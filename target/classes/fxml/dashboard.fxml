@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.chart.PieChart?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox xmlns="http://javafx.com/javafx/17"
+      xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="com.wellbeing.ui.DashboardController"
+      spacing="20"
+      styleClass="screen-root">
+    <HBox alignment="CENTER_LEFT">
+        <VBox spacing="4">
+            <Label text="Dashboard" styleClass="screen-title" />
+            <Label text="Your daily screen habits, live activity, and app distribution." styleClass="screen-subtitle" />
+        </VBox>
+    </HBox>
+
+    <GridPane hgap="18" vgap="18">
+        <columnConstraints>
+            <ColumnConstraints percentWidth="38" hgrow="ALWAYS" />
+            <ColumnConstraints percentWidth="31" hgrow="ALWAYS" />
+            <ColumnConstraints percentWidth="31" hgrow="ALWAYS" />
+        </columnConstraints>
+
+        <VBox GridPane.columnIndex="0" GridPane.rowIndex="0" styleClass="card stat-card" spacing="14">
+            <Label text="Total Screen Time" styleClass="card-title" />
+            <Label fx:id="totalTimeLabel" text="0 mins" styleClass="hero-stat" />
+            <Label fx:id="totalTimeSubLabel" text="Today" styleClass="muted-copy" />
+        </VBox>
+
+        <VBox GridPane.columnIndex="1" GridPane.rowIndex="0" styleClass="card stat-card" spacing="14">
+            <Label text="Currently Active" styleClass="card-title" />
+            <Label fx:id="liveAppLabel" text="Monitoring idle" styleClass="live-app" wrapText="true" />
+            <Label fx:id="liveSessionLabel" text="Live session: 0s" styleClass="muted-copy" />
+        </VBox>
+
+        <VBox GridPane.columnIndex="2" GridPane.rowIndex="0" styleClass="card stat-card accent-card" spacing="14">
+            <Label text="Focus Insight" styleClass="card-title" />
+            <Label text="Top app today" styleClass="accent-overline" />
+            <Label fx:id="activeInsightLabel" text="Loading..." styleClass="accent-copy" wrapText="true" />
+        </VBox>
+
+        <BorderPane GridPane.columnIndex="0" GridPane.rowIndex="1" GridPane.columnSpan="2" styleClass="card chart-card">
+            <top>
+                <VBox spacing="4" BorderPane.alignment="CENTER_LEFT">
+                    <BorderPane.margin>
+                        <Insets top="0" right="0" bottom="14" left="0" />
+                    </BorderPane.margin>
+                    <Label text="App Usage Distribution" styleClass="card-title" />
+                    <Label text="Top applications contributing to your day." styleClass="muted-copy" />
+                </VBox>
+            </top>
+            <center>
+                <PieChart fx:id="usagePieChart" legendVisible="true" labelsVisible="true" />
+            </center>
+        </BorderPane>
+
+        <VBox GridPane.columnIndex="2" GridPane.rowIndex="1" styleClass="card chart-card" spacing="16">
+            <Label text="Top Apps" styleClass="card-title" />
+            <Label text="The three apps taking the biggest share of your time." styleClass="muted-copy" />
+            <VBox fx:id="topAppsContainer" spacing="14" VBox.vgrow="ALWAYS" />
+        </VBox>
+    </GridPane>
+</VBox>

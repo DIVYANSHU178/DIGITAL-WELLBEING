@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToggleButton?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox xmlns="http://javafx.com/javafx/17"
+      xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="com.wellbeing.ui.SettingsController"
+      spacing="18"
+      styleClass="screen-root">
+    <VBox spacing="4">
+        <Label text="Settings" styleClass="screen-title" />
+        <Label text="Control notifications and set a daily screen-time threshold." styleClass="screen-subtitle" />
+    </VBox>
+
+    <VBox styleClass="card settings-card" spacing="22">
+        <HBox alignment="CENTER_LEFT">
+            <VBox spacing="4">
+                <Label text="Daily Limit" styleClass="card-title" />
+                <Label text="Set the screen-time goal for alerts and summaries." styleClass="muted-copy" />
+            </VBox>
+            <Region HBox.hgrow="ALWAYS" />
+            <HBox alignment="CENTER_LEFT" spacing="10">
+                <TextField fx:id="timeLimitField" promptText="3" prefWidth="110" styleClass="modern-input" />
+                <Label text="hours" styleClass="muted-copy" />
+            </HBox>
+        </HBox>
+
+        <HBox alignment="CENTER_LEFT">
+            <VBox spacing="4">
+                <Label text="Notifications" styleClass="card-title" />
+                <Label text="Receive nudges when you approach your limit." styleClass="muted-copy" />
+            </VBox>
+            <Region HBox.hgrow="ALWAYS" />
+            <ToggleButton fx:id="notificationsToggle" text="On" styleClass="switch-toggle" />
+        </HBox>
+
+        <HBox alignment="CENTER_LEFT">
+            <VBox spacing="4">
+                <Label text="App Theme" styleClass="card-title" />
+                <Label text="Choose between dark and light appearance." styleClass="muted-copy" />
+            </VBox>
+            <Region HBox.hgrow="ALWAYS" />
+            <ToggleButton fx:id="themeToggle" text="Dark" styleClass="switch-toggle" />
+        </HBox>
+
+        <HBox alignment="CENTER_LEFT" spacing="14">
+            <Button text="Save Settings" styleClass="primary-button" onAction="#saveSettings" />
+            <Label fx:id="settingsStatusLabel" styleClass="status-label" />
+        </HBox>
+
+        <Label fx:id="settingsSummaryLabel" text="Current limit: 3 hours per day" styleClass="pill-label" />
+    </VBox>
+</VBox>

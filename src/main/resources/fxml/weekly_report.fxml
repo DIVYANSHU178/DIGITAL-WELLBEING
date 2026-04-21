@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.chart.BarChart?>
+<?import javafx.scene.chart.CategoryAxis?>
+<?import javafx.scene.chart.NumberAxis?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox xmlns="http://javafx.com/javafx/17"
+      xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="com.wellbeing.ui.WeeklyReportController"
+      spacing="18"
+      styleClass="screen-root">
+    <VBox spacing="4">
+        <Label text="Weekly Report" styleClass="screen-title" />
+        <Label text="Seven-day trend of your tracked usage with animated loading." styleClass="screen-subtitle" />
+    </VBox>
+
+    <VBox styleClass="card chart-card" spacing="12" VBox.vgrow="ALWAYS">
+        <Label fx:id="weeklySummaryLabel" text="Last 7 days total: 0 mins" styleClass="card-title" />
+        <BarChart fx:id="weeklyBarChart" categoryGap="24" barGap="8" legendVisible="false" animated="true" VBox.vgrow="ALWAYS">
+            <xAxis>
+                <CategoryAxis label="Day" />
+            </xAxis>
+            <yAxis>
+                <NumberAxis label="Hours" />
+            </yAxis>
+        </BarChart>
+    </VBox>
+</VBox>

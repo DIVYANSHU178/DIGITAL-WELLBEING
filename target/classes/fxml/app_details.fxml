@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox xmlns="http://javafx.com/javafx/17"
+      xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="com.wellbeing.ui.AppDetailsController"
+      spacing="18"
+      styleClass="screen-root">
+    <VBox spacing="4">
+        <Label text="App Details" styleClass="screen-title" />
+        <Label text="All apps tracked today, with usage and last active time." styleClass="screen-subtitle" />
+    </VBox>
+
+    <TableView fx:id="appDetailsTable" VBox.vgrow="ALWAYS" styleClass="modern-table">
+        <columns>
+            <TableColumn fx:id="appNameColumn" text="Application" prefWidth="420" />
+            <TableColumn fx:id="timeUsedColumn" text="Time Used Today" prefWidth="220" />
+            <TableColumn fx:id="lastUsedColumn" text="Last Used" prefWidth="260" />
+        </columns>
+    </TableView>
+</VBox>
